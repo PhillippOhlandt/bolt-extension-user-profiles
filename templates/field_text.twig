@@ -1,3 +1,5 @@
+{% from '@bolt/_macro/_macro.twig' import attr %}
+
 {#=== OPTIONS ========================================================================================================#}
 
 {% set option = {
@@ -15,7 +17,7 @@
 {#=== INIT ===========================================================================================================#}
 
 {% set attr_text = {
-    class:          option.class ~ ' form-control',
+    class:          option.class ~ ' form-control large',
     name:           name,
     required:       option.required,
     pattern:        (option.pattern and option.pattern not in ['url', 'email']) ? option.pattern : '',
@@ -31,7 +33,7 @@
 
     <label class="col-sm-2 col-md-3 col-lg-4 control-label">{{ option.label ? option.label : name | capitalize }}</label>
     <div class="col-sm-10 col-md-9 col-lg-8">
-        <input{{ macro.attr(attr_text) }}>
+        <input{{ attr(attr_text) }}>
     </div>
 
 </fieldset>
