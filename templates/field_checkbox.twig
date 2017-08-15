@@ -1,3 +1,5 @@
+{% from '@bolt/_macro/_macro.twig' import attr %}
+
 {#=== OPTIONS ========================================================================================================#}
 
 {% set option = {
@@ -28,7 +30,7 @@
 
     <label class="col-sm-2 col-md-3 col-lg-4 control-label" for="{{ key }}">{{ option.label ? option.label : name | capitalize }}</label>
     <div class="col-sm-10 col-md-9 col-lg-8">
-        <input{{ macro.attr(attr_checkbox) }}>
+        <input{{ attr(attr_checkbox) }}>
     </div>
 
 </fieldset>
