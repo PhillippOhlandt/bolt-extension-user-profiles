@@ -1,3 +1,5 @@
+{% from '@bolt/_macro/_macro.twig' import attr %}
+
 {#=== OPTIONS ========================================================================================================#}
 
 {% set option = {
@@ -35,7 +37,7 @@
 
     <label class="col-sm-2 col-md-3 col-lg-4 control-label">{{ option.label ? option.label : name | capitalize }}</label>
     <div class="col-sm-10 col-md-9 col-lg-8">
-        <select{{ macro.attr(attr_select) }}>
+        <select{{ attr(attr_select) }}>
             {% for value in option.values %}
 
                 {% if value is iterable %}
@@ -51,7 +53,7 @@
                     } %}
                 {% endif %}
 
-                <option{{ macro.attr(attr_opt) }}>{{ value }}</option>
+                <option{{ attr(attr_opt) }}>{{ value }}</option>
             {% endfor %}
         </select>
     </div>
